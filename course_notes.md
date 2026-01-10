@@ -1,6 +1,6 @@
-# Course Notes
+# Data Engineering Zoomcamp 2026 - Course Notes
 
-## Module 1: Docker, SQL
+## [Module 1](01-docker): Docker, SQL
 
 * Modify $PS1 to change the look of terminal prompt. i.e. `$PS1="> "` will change the prompt to `>` with the cursor. 
 
@@ -21,7 +21,7 @@
     * `docker run -it --rm --entrypoint=bash -v $(pwd)/whatever:/app/whatever python:3.13.11-slim`. The left side of the volume argument is the host machine and the right is where we want to map it on the container. 
 
 ### Data Pipeline
-  * Use sys.argv to access command line arguments to our py scripts.
+  * Use `sys.argv` to access command line arguments to our py scripts.
   * Using `pandas` and `pyarrow`, it's better to use a virtual environment for the project rather than `pip` installing packages globally on the host machine.
   * Using `uv` package manager
     * The system version of Python (host machine) is 3.12.1 but we want to create a virtual env for the project. 
