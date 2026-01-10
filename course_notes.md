@@ -1,11 +1,10 @@
 # Data Engineering Zoomcamp 2026 - Course Notes
 
-## [Module 1](01-docker): Docker, SQL
+## [Module 1](01-docker): Docker, SQL Refresher, Terraform
 
 * Modify $PS1 to change the look of terminal prompt. i.e. `$PS1="> "` will change the prompt to `>` with the cursor. 
 
 ### Docker
-
   * Every time we run a container, we run it from a docker image. An instance of the image is created. The container has what is described in the image. It is stateless. When we stop the container, nothing is saved (i.e. installing python).
 
   * `docker run -it python:3.13.11`
@@ -30,13 +29,15 @@
     * Check the version is correct for the project: `uv run python -V` vs the host machine's version (`python -V`).
     * Update interpreter location: select interpreter -> browse for `.venv/bin/python`
     * Run our script using the virtual env: `uv run python pipeline/pipeline.py 12`
-  * To Dockerize the pipeline
-    * add a dockerfile that builds the image
+### Dockerize the Pipeline
+  * add a dockerfile that builds the image
       * See [Dockerfile](01-docker/Dockerfile)
-    * Build the image: `docker build -t test:pandas` the `-t` flag tags the image. The name of the image is `test` and the tag is `pandas`. The default tag is `latest` if not provided.
-    * Run the pipeline: `docker run -it --rm test:pandas 12` 
-    * Using multiple `COPY` commands creates layers and improves caching functionality. 
-    * Installing dependencies from `uv.lock` keeps our local and container environments identical -- avoids surprises.
-    * Adding the virtual environment to the PATH in the container obviates the need to specify `uv run` on the entrypoint command.
-      * `ENV PATH="/app/.venv/bin:$PATH"`: PATH is a system environment variable that tells the shell where to look for executable commands (i.e python, etc.). Here, we are prepending `app/.venv/bin` to the existing `PATH`. Putting it first we use the versions from the virtual environment by default and avoid accidently using system python.
-      * If we don't prepend the .venv, our entrypoint command would need to be `ENTRYPOINT ["uv", "run", "python", "pipeline.py"]`
+  * Build the image: `docker build -t test:pandas` the `-t` flag tags the image. The name of the image is `test` and the tag is `pandas`. The default tag is `latest` if not provided.
+  * Run the pipeline: `docker run -it --rm test:pandas 12` 
+  * Using multiple `COPY` commands creates layers and improves caching functionality. 
+  * Installing dependencies from `uv.lock` keeps our local and container environments identical -- avoids surprises.
+  * Adding the virtual environment to the PATH in the container obviates the need to specify `uv run` on the entrypoint command.
+    * `ENV PATH="/app/.venv/bin:$PATH"`: PATH is a system environment variable that tells the shell where to look for executable commands (i.e python, etc.). Here, we are prepending `app/.venv/bin` to the existing `PATH`. Putting it first we use the versions from the virtual environment by default and avoid accidently using system python.
+    * If we don't prepend the .venv, our entrypoint command would need to be `ENTRYPOINT ["uv", "run", "python", "pipeline.py"]`
+
+### Running PostgreSQL with Docker
