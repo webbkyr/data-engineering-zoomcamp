@@ -36,6 +36,7 @@
     * Build the image: `docker build -t test:pandas` the `-t` flag tags the image. The name of the image is `test` and the tag is `pandas`. The default tag is `latest` if not provided.
     * Run the pipeline: `docker run -it --rm test:pandas 12` 
     * Using multiple `COPY` commands creates layers and improves caching functionality. 
-    * Adding the virtual environment to the PATH in the container obviates the need to specify "uv run" on the entrypoint command.
+    * Installing dependencies from `uv.lock` keeps our local and container environments identical -- avoids surprises.
+    * Adding the virtual environment to the PATH in the container obviates the need to specify `uv run` on the entrypoint command.
       * `ENV PATH="/app/.venv/bin:$PATH"`: PATH is a system environment variable that tells the shell where to look for executable commands (i.e python, etc.). Here, we are prepending `app/.venv/bin` to the existing `PATH`. Putting it first we use the versions from the virtual environment by default and avoid accidently using system python.
       * If we don't prepend the .venv, our entrypoint command would need to be `ENTRYPOINT ["uv", "run", "python", "pipeline.py"]`
