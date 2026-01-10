@@ -31,6 +31,7 @@
     * Update interpreter location: select interpreter -> browse for `.venv/bin/python`
     * Run our script using the virtual env: `uv run python pipeline/pipeline.py 12`
   * To Dockerize the pipeline
-    * add a dockerfile that builds the image (See Dockerfile and notes)
+    * add a dockerfile that builds the image
+      * See [Dockerfile](01-docker/Dockerfile)
     * Build the image: `docker build -t test:pandas` the `-t` flag tags the image. The name of the image is `test` and the tag is `pandas`. The default tag is `latest` if not provided.
     * Run the pipeline: `docker run -it --rm test:pandas 12` 
