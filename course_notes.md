@@ -6,22 +6,21 @@
 
 ### Docker
 
-* Every time we run a container, we run it from a docker image. An instance of the image is created. The container has what is described in the image. It is stateless. When we stop the container, nothing is saved (i.e. installing python).
+  * Every time we run a container, we run it from a docker image. An instance of the image is created. The container has what is described in the image. It is stateless. When we stop the container, nothing is saved (i.e. installing python).
 
-* `docker run -it python:3.13.11`
+  * `docker run -it python:3.13.11`
   * add the `rm` argument to automatically delete the container when it exits.
 
-* python:3.13.11-slim => python is the image name and anything after the colon is the image tag (`3.13.11-slim`).
-  * The entrypoint for this image is a python prompt. To overwrite this add `--entrypoint=` arg. So, for bash it would be `--entrypoint=bash`.
-    - `docker run -it --entrypoint=bash python:3.13.11-slim`
+  * python:3.13.11-slim => python is the image name and anything after the colon is the image tag (`3.13.11-slim`).
+    * The entrypoint for this image is a python prompt. To overwrite this add `--entrypoint=` arg. So, for bash it would be `--entrypoint=bash`.
+      - `docker run -it --entrypoint=bash python:3.13.11-slim`
 
-* `docker ps -a` to find exited docker containers
-* `docker ps -aq` displays container ids on the current system, whether exited or not
-* Use volume mapping to mount files in a docker container
-  * `docker run -it --rm --entrypoint=bash -v $(pwd)/whatever:/app/whatever python:3.13.11-slim`. The left side of the volume argument is the host machine and the right is where we want to map it on the container. 
+  * `docker ps -a` to find exited docker containers
+  * `docker ps -aq` displays container ids on the current system, whether exited or not
+  * Use volume mapping to mount files in a docker container
+    * `docker run -it --rm --entrypoint=bash -v $(pwd)/whatever:/app/whatever python:3.13.11-slim`. The left side of the volume argument is the host machine and the right is where we want to map it on the container. 
 
-  ### Data Pipeline
-
+### Data Pipeline
   * Use sys.argv to access command line arguments to our py scripts.
   * Using `pandas` and `pyarrow`, it's better to use a virtual environment for the project rather than `pip` installing packages globally on the host machine.
   * Using `uv` package manager
