@@ -1,6 +1,4 @@
-# Data Engineering Zoomcamp 2026 - Course Notes
-
-## [Module 1](01-docker): Docker, SQL Refresher, Terraform
+# Containterization (Docker) and Infrastructure as Code (IaC)
 
 * Modify $PS1 to change the look of terminal prompt. i.e. `$PS1="> "` will change the prompt to `>` with the cursor. 
 
@@ -41,3 +39,27 @@
     * If we don't prepend the .venv, our entrypoint command would need to be `ENTRYPOINT ["uv", "run", "python", "pipeline.py"]`
 
 ### Running PostgreSQL with Docker
+
+* How to run a containerized version of postgres
+```
+docker run -it --rm \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v ny_taxi_postgres_data:/var/lib/postgresql \
+  -p 5432:5432 \
+  postgres:18
+```
+  * `-e` are environment variables
+  * `-v` is the volume on our local machine that is managed by Docker. It allows us to persist the data we write to the database. You can inspect the volume with `docker volume inspect ny_taxi_postgres_data`
+  * `-p` is port forwarding from host machine to the container, so traffic to `localhost:5432` is forwarded to the running container. 5432 is the default port for postgres. If 5432 is already in use on our host machine, we could map it to a different port: `-p 5433:5432`.
+    * We can connect from the host machine `psql -h localhost -p 5432 -U root -d ny_taxi`
+  * Connect to db from the project
+    * add pgcli as a dev dependency: `uv add --dev pgcli`
+    * connect to the db: `uv run pgcli -h localhost -p 5432 -u root -d ny_taxi`
+
+### NY Taxi Dataset and Data Ingestion
+  * Install Jupyter: `uv add --dev jupyter` to use a notebook for data analysis, iteration and documentation.
+    * start the notebook: `uv run jupyter notebook` 
+      * automatically adds a port mapping to the server (i.e. 8888)
+      * click the browser link that contains the token to open the notebook

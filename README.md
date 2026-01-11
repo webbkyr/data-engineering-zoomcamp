@@ -1,6 +1,8 @@
 # data-engineering-zoomcamp
+Data Engineering is the design and development of systems for collecting, storing and analyzing data at scale.
 
-## [Module 1](01-docker): Docker, SQL, Terraform
+## [Module 1](01-docker): Containterization (Docker) and Infrastructure as Code (IaC)
+[Link to module notes](01-docker/notes.md)
 ### Homework:
 TBD
 
@@ -12,5 +14,5 @@ TBD
 
 ## Module 5: Batch Processing
 
-## Module 6: Streaming Processing
+## Module 6: Stream Processing
 
