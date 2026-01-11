@@ -63,3 +63,24 @@ docker run -it --rm \
     * start the notebook: `uv run jupyter notebook` 
       * automatically adds a port mapping to the server (i.e. 8888)
       * click the browser link that contains the token to open the notebook
+
+  * Checking out the data in pandas:
+```
+# first few rows:
+df.head()
+
+# total rows
+len(df)
+
+# see the inferred data types if not passing in a schema
+df.dtypes()
+
+# data shape (number of rows, columns)
+df.shapse()
+```
+
+  * When pandas complains about `/tmp/ipykernel_5404/2847841806.py:1: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.` Set data types explictily and pass them to the `read_csv` method.
+    * `df = pd.read_csv(url, dtype=schema_mapping, parse_dates=['column_with_date'])`
+
+
+### Ingesting NY Taxi Dataset into Postgres
