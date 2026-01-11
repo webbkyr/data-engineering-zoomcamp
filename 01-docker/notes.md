@@ -63,6 +63,7 @@ docker run -it --rm \
     * start the notebook: `uv run jupyter notebook` 
       * automatically adds a port mapping to the server (i.e. 8888)
       * click the browser link that contains the token to open the notebook
+      * installing packages from the notebook, prepend `!` to the command: `!uv add sqlalchemy`
 
   * Checking out the data in pandas:
 ```
@@ -82,5 +83,13 @@ df.shapse()
   * When pandas complains about `/tmp/ipykernel_5404/2847841806.py:1: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.` Set data types explictily and pass them to the `read_csv` method.
     * `df = pd.read_csv(url, dtype=schema_mapping, parse_dates=['column_with_date'])`
 
-
 ### Ingesting NY Taxi Dataset into Postgres
+
+* Install packages for db operations: sqlalchemy (ORM) and psycopg2-binary
+* Create the table:
+  * notebook create table with schema only (`n=0` inserts 0 rows): `df.head(n=0).to_sql(name='yellow_taxi_data', con=engine, if_exists='replace')`
+  *  inspect columns via pgcli: `\d+ yellow_taxi_data`
+
+### Creating the Data Ingestion Script
+* How to convert a notebook to a python script: `jupyter nbconvert --to <output format> <input notebook>`
+  * `uv run jupyter nbconvert --to=script notebook.ipynb`
