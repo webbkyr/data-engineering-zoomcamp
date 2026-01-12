@@ -24,7 +24,6 @@ schema_mapping = {
 }
 dtype_dates = ['tpep_pickup_datetime', 'tpep_dropoff_datetime']
 
-
 def ingest_data(url: str, engine, target_table: str, chunk_size: int = 100000):
     # create an iterator to load data in batches
     table_name = 'yellow_taxi_data'
