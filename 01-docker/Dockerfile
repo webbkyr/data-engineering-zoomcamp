@@ -12,7 +12,8 @@ COPY pyproject.toml .python-version uv.lock ./
 RUN uv sync --locked
 
 # finally copy our code that could change frequently
-COPY pipeline/pipeline.py pipeline.py
+# COPY pipeline/pipeline.py pipeline.py
+COPY ingest.py ingest.py
 
 # what to do when the container starts => run the pipeline
-ENTRYPOINT [ "python", "pipeline.py"]
+ENTRYPOINT [ "python", "ingest.py"]
