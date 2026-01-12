@@ -93,3 +93,26 @@ df.shapse()
 ### Creating the Data Ingestion Script
 * How to convert a notebook to a python script: `jupyter nbconvert --to <output format> <input notebook>`
   * `uv run jupyter nbconvert --to=script notebook.ipynb`
+  * It's convention to use `main()` in py script / program.
+  * In formated string, `{year:04d}` 
+    * year = the variable
+    * d = integer (decimal)
+    * 4 = total width of characters, so expecting a YYYY value
+    * 0 = pad with leading zeroes
+  * In formated string, '{month:02d}`
+    * variable
+    * integer
+    * 2 = total width, expecting MM
+    * It's important to use padding in data engineering. If you don't you can get funky sorting and unexpected results:
+    ```
+    2023-1
+    2023-10
+    2023-2
+    ```
+    But with padding we get:
+    ```
+    2023-01
+    2023-02
+    2023-10
+    ```
+    Always pad to expected width for file paths, URLs, timestamps, and dataset naming conventions. 
