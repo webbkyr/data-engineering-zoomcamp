@@ -99,7 +99,7 @@ df.shapse()
     * d = integer (decimal)
     * 4 = total width of characters, so expecting a YYYY value
     * 0 = pad with leading zeroes
-  * In formated string, '{month:02d}`
+  * In formated string, `{month:02d}`
     * variable
     * integer
     * 2 = total width, expecting MM

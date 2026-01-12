@@ -63,9 +63,9 @@ def ingest_data(url: str, engine, target_table: str, chunksize: int = 100000):
 @click.option('--pg-host',      default='localhost',        help='Postgres hostname')
 @click.option('--pg-port',      default='5432',             help='Postgres port')
 @click.option('--pg-db',        default='ny_taxi',          help='Postgres database name')
-@click.option('--year',         default=2021, type=int,     help='Year of the source data')
-@click.option('--month',        default=1,    type=int,     help='Month of the source data')
-@click.option('--chunksize',    default=100000,    type=int,     help='Month of the source data')
+@click.option('--year',         default=2021,   type=int,   help='Year of the source data')
+@click.option('--month',        default=1,      type=int,   help='Month of the source data')
+@click.option('--chunksize',    default=100000, type=int,   help='Month of the source data')
 @click.option('--target-table', default='yellow_taxi_data', help='Target table name')
 def main(pg_user, pg_password, pg_host, pg_port, pg_db, year, month, chunksize, target_table):
     engine = create_engine(f'postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_db}')
