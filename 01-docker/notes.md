@@ -116,3 +116,11 @@ df.shapse()
     2023-10
     ```
     Always pad to expected width for file paths, URLs, timestamps, and dataset naming conventions. 
+
+### PgAdmin
+* To use pgadmin with pg in docker, you must use a network so that different containers can communicate with each other.
+  * `docker network create pg-network`
+  * Both `docker run` commands for pg and pgadmin will need to include `--network pg-network` to know about each other.
+
+### Docker Compose
+* The purpose of the `Dockerfile` builds images. A `docker-compose` file, however, allows us to start up multiple services without running individual `docker run` commands.

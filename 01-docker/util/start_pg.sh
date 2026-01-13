@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# not necessary when using docker compose
+
 # echo "starting postgres in docker"
 # # the -d flag runs the container in the background
 # docker run -dit --rm \
@@ -22,4 +24,4 @@ docker run -dit --rm \
   --network=pg-network \
   --name=pgdatabase \
   postgres:18
-echo "postgres container started"
+echo "postgres container started in background"

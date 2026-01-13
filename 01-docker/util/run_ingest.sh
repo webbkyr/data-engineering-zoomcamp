@@ -1,8 +1,10 @@
-!#/bin/bash
+#!/bin/bash
 
+# 01-docker-default is the network created by compose
+# if ot using compose, update to --network=pg-network
 echo "ingesting ny taxi data"
 docker run -it --rm \
-  --network=pg-network \
+  --network=01-docker_default \
   ny_taxi:1.0.0 \
     --pg-user=root \
     --pg-password=root \

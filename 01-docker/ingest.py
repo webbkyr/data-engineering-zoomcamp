@@ -27,7 +27,6 @@ dtype_dates = ['tpep_pickup_datetime', 'tpep_dropoff_datetime']
 
 def ingest_data(url: str, engine, target_table: str, chunksize: int = 100000):
     # create an iterator to load data in batches
-    table_name = 'yellow_taxi_data'
     df_iterator = pd.read_csv(
         url,
         dtype=schema_mapping,
