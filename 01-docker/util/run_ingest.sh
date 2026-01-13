@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # 01-docker-default is the network created by compose
-# if ot using compose, update to --network=pg-network
+# it's based on the directory name
+# if not using compose, update to --network=pg-network
+docker network ls 
+
 echo "ingesting ny taxi data"
 docker run -it --rm \
   --network=01-docker_default \
