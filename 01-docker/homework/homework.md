@@ -1,4 +1,4 @@
-# Module 1 Homework Answers
+# Module 1 Homework Responses
 
 ## Question 1: Understanding Docker images
 * 25.3
