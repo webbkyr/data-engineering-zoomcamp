@@ -2,6 +2,7 @@
 # every single container (or "service", as the file states) will run within the same network and will be able to find each other according to their names (pgdatabase and pgadmin in this example).
 services:
   pgdatabase:
+    container_name: postgres
     image: postgres:18
     environment:
       - POSTGRES_USER=root
@@ -15,6 +16,7 @@ services:
     depends_on:
       - pgdatabase
     image: dpage/pgadmin4
+    container_name: pgadmin
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root

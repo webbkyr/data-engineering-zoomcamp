@@ -124,3 +124,6 @@ df.shapse()
 
 ### Docker Compose
 * The purpose of the `Dockerfile` builds images. A `docker-compose` file, however, allows us to start up multiple services without running individual `docker run` commands.
+* docker compose by default creates its own network so you do NOT need to use `--network` argument or specify one in the config.
+* To see the network compose createS: `docker network ls`
+  * Usually called `01-docker-default`

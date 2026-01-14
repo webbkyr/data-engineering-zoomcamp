@@ -8,12 +8,15 @@ WORKDIR /app
 ENV PATH="/app/.venv/bin:$PATH"
 COPY pyproject.toml .python-version uv.lock ./
 
+COPY homework/data data
+
 # install deps from lock file
 RUN uv sync --locked
 
 # finally copy our code that could change frequently
 # COPY pipeline/pipeline.py pipeline.py
-COPY ingest.py ingest.py
+# COPY ingest.py ingest.py
+COPY homework/ingest.py ingest.py
 
 # what to do when the container starts => run the pipeline
 ENTRYPOINT [ "python", "ingest.py"]
