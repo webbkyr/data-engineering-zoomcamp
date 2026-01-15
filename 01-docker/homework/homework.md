@@ -30,6 +30,44 @@ LIMIT 1
 
 ## Question 5: Biggest pickup zone
 
+```
+SELECT sum(total_amount),
+    zpu."Zone"
+FROM taxi_trips_2025_11 t
+	JOIN taxi_zones_lkp zpu ON t."PULocationID" = zpu."LocationID"
+WHERE DATE(lpep_pickup_datetime) = DATE '2025-11-18'
+GROUP BY zpu."Zone"
+ORDER BY sum(total_amount) desc
+LIMIT 1
+```
+
+* East Harlem North
+
+
+Other option to limit to the 18th
+```
+lpep_pickup_datetime >= '2025-11-18'
+AND lpep_pickup_datetime <  '2025-11-19'
+```
+
+Or cast the timestamp to a date
+```
+lpep_pickup_datetime::date = DATE '2025-11-18'
+```
+
 ## Question 6: Largest tip
+```
+SELECT max(tip_amount), zdo."Zone" as dropoff_zone
+FROM taxi_trips_2025_11 t
+JOIN taxi_zones_lkp zpu ON t."PULocationID" = zpu."LocationID"
+JOIN taxi_zones_lkp zdo ON t."DOLocationID" = zdo."LocationID"
+WHERE zpu."LocationID" = 74 -- Eastern Harlem North
+AND lpep_pickup_datetime >= '2025-11-01'
+AND lpep_pickup_datetime <  '2025-12-01'
+GROUP BY zdo."Zone"
+ORDER BY max(tip_amount) desc
+LIMIT 1
+```
+* Yorkville West
 
 ## Question 7: Terraform Workflow
