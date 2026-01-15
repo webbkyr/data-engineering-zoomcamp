@@ -127,3 +127,13 @@ df.shapse()
 * docker compose by default creates its own network so you do NOT need to use `--network` argument or specify one in the config.
 * To see the network compose createS: `docker network ls`
   * Usually called `01-docker-default`
+* When port mapping and using networks, the container will be able to see internal ports. The host machine is irrelevant.
+
+### Terraform
+* Defined infrastructure as code for both on prem and cloud resources in a human readable format.
+
+#### Key Commands
+*  `init` after defining your provider (i.e. aws), it gets the code for that provider and pulls down to your local machine
+* `plan` after defining resources, it shows you the resources that will be created
+* `apply` do what is in the tf files and build the infrastructure
+* `destroy` tears down the resources defined in your tf files

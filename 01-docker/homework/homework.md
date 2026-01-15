@@ -71,3 +71,5 @@ LIMIT 1
 * Yorkville West
 
 ## Question 7: Terraform Workflow
+Which of the following sequences describes the Terraform workflow for: 1) Downloading plugins and setting up backend, 2) Generating and executing changes, 3) Removing all resources? 
+* `terraform init, terraform apply -auto-approve, terraform destroy`
