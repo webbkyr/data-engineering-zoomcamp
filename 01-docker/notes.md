@@ -137,3 +137,6 @@ df.shapse()
 * `plan` after defining resources, it shows you the resources that will be created
 * `apply` do what is in the tf files and build the infrastructure
 * `destroy` tears down the resources defined in your tf files
+
+### GCP
+* set credentials: `export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-keyfile.json"`
