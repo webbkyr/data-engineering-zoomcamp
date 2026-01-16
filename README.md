@@ -4,7 +4,7 @@ Data Engineering is the design and development of systems for collecting, storin
 ## [Module 1](01-docker): Containterization (Docker) and Infrastructure as Code (IaC)
 [Link to notes](01-docker/notes.md)
 ### Homework:
-TBD
+[Link](01-docker/homework/)
 
 ## Module 2: Workflow Orchestration
 
