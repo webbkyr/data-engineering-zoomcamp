@@ -15,7 +15,7 @@ provider "google" {
 resource "google_storage_bucket" "demo-bucket" {
   name          = "demo-daring-pier-20260115"
   location      = "US"
-  storage_class = "STANDARD"
+  storage_class = var.gcs_storage_class
 
   uniform_bucket_level_access = true
 
@@ -37,5 +37,5 @@ resource "google_storage_bucket_object" "default" {
 }
 
 resource "google_bigquery_dataset" "demo-dataset" {
-  dataset_id = "demo_daring_pier_dataset"
+  dataset_id = var.bg_dataset_name
 }
