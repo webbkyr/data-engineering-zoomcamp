@@ -8,13 +8,13 @@ terraform {
 }
 
 provider "google" {
-  project = "daring-pier-447713-j0"
+  project = var.project
   region  = "us-central1"
 }
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "demo-daring-pier-20260115"
-  location      = "US"
+  name          = var.gcs_bucket_name
+  location      = var.location
   storage_class = var.gcs_storage_class
 
   uniform_bucket_level_access = true
