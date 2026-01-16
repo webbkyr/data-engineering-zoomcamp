@@ -139,4 +139,6 @@ df.shapse()
 * `destroy` tears down the resources defined in your tf files
 
 ### GCP
-* set credentials: `export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-keyfile.json"`
+* The official Google way to set credentials: `export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-keyfile.json"`
+* Terraform also supports using  `GOOGLE_CREDENTIALS`.
+* `unset <ENV_VAR>` to unset the variable
