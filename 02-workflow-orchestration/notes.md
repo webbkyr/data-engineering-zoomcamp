@@ -10,4 +10,5 @@ Orchestrator (i.e. Kestra, Airflow) ensures independent pieces of our pipeline c
 
 ### Kestra Concepts
 * Workflow has a number of tasks.
-* We can defined how the tasks work with properties. We can pass data between the tasks using outputs.
+* Define how the tasks work with properties.
+* Pass data between the tasks using outputs.
