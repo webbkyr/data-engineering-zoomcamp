@@ -19,3 +19,5 @@ TBD
 
 ## Module 6: Stream Processing
 
+## Project Prep
+[Sandbox](sandbox) is setup to explore different datasets in preparation for the final project. Ultimately, the project will get its own repo.
