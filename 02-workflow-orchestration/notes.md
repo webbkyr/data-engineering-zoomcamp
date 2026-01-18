@@ -7,3 +7,7 @@ Orchestrator (i.e. Kestra, Airflow) ensures independent pieces of our pipeline c
 ## Building Orchestration Workflow with Kestra
 * Kestra is an orchestration platform to manage business-critical workflows. They can be built with code, no code, AI copilot
 * Language-agnostic (vs. Airflow, which is Python based)
+
+### Kestra Concepts
+* Workflow has a number of tasks.
+* We can defined how the tasks work with properties. We can pass data between the tasks using outputs.
