@@ -23,7 +23,7 @@
   * Using `uv` package manager
     * The system version of Python (host machine) is 3.12.1 but we want to create a virtual env for the project. 
     * `pip install uv` (global) Then we can init a virtual env in our project 
-    * init the python version we want in our project: `uv unit --python 3.13`
+    * init the python version we want in our project: `uv init --python 3.13`
     * Check the version is correct for the project: `uv run python -V` vs the host machine's version (`python -V`).
     * Update interpreter location: select interpreter -> browse for `.venv/bin/python`
     * Run our script using the virtual env: `uv run python pipeline/pipeline.py 12`
