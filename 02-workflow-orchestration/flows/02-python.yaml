@@ -24,7 +24,8 @@ tasks:
     script: |
       from kestra import Kestra
       import requests
-      def get_docker_image_downloads(image_name: str = {{ inputs.image_name }}):
+      image_name_str = f"{{ inputs.image_name }}"
+      def get_docker_image_downloads(image_name: str = image_name_str):
           """Queries the Docker Hub API to get the number of downloads for a specific Docker image."""
           url = f"https://hub.docker.com/v2/repositories/{image_name}/"
           response = requests.get(url)
