@@ -1,6 +1,5 @@
 services:
   pgdatabase:
-    container_name: postgres
     image: postgres:18
     environment:
       - POSTGRES_USER=root
@@ -19,7 +18,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     volumes:
-      - "pgadmin_data_fresh:/var/lib/pgadmin"
+      - "pgadmin_data:/var/lib/pgadmin"
     ports:
       - "8085:80"
   # stores kestra data about our workflows and kestra metadata
@@ -87,6 +86,6 @@ volumes:
 # The local volume driver is Docker's default driver for creating volumes on the host machine where Docker is running
 # local is used by default
   ny_taxi_postgres_data:
-  pgadmin_data_fresh:
+  pgadmin_data:
   kestra_postgres_data:
   kestra_data:
