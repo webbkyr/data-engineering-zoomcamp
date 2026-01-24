@@ -9,9 +9,10 @@ services:
       - "ny_taxi_postgres_data:/var/lib/postgresql:rw"
     ports:
       - "5432:5432"
-  pgadmin:
+  pgadmin: # when registering a new service, the name field is the name of the db (in this case ny_taxi)
     depends_on:
-      - pgdatabase
+      pgdatabase:
+        condition: service_started
     image: dpage/pgadmin4
     container_name: pgadmin
     environment:
