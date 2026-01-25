@@ -14,7 +14,7 @@ inputs:
 
 variables:
   file: "{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv"
-  gcs_file: "gs://{{kv('GCP_BUCKET_NAME')}}/{{inputs.taxi}}/year={{inputs.year}}/month={{inputs.month}}/{{vars.file}}"
+  gcs_file: "gs://{{kv('GCP_BUCKET_NAME')}}/{{inputs.taxi}}/{{vars.file}}"
   table: "{{kv('GCP_DATASET')}}.{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy_MM')}}"
   data: "{{outputs.extract.outputFiles[inputs.taxi ~ '_tripdata_' ~ (trigger.date | date('yyyy-MM')) ~ '.csv']}}"
 
