@@ -256,3 +256,5 @@ terraform.rc
 # planout
 
 ny_taxi_postgres_data/
+.env.json
+.env-encoded

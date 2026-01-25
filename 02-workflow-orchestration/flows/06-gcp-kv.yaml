@@ -1,0 +1,35 @@
+id: 06_gcp_kv
+namespace: zoomcamp
+
+tasks:
+  # - id: test_kv_access # plaintext; commenting in favor of more secure method
+  #   type: io.kestra.plugin.core.log.Log
+  #   message: "{{ kv('GCP_AUTH') }}"
+
+  - id: test_secret_access # base64 encoded and loaded into docker container
+    type: io.kestra.plugin.core.log.Log
+    message: "{{ secret('GCP_KESTRA_AUTH') }}"
+
+  - id: gcp_project_id
+    type: io.kestra.plugin.core.kv.Set
+    key: GCP_PROJECT_ID
+    kvType: STRING
+    value: daring-pier-447713-j0
+
+  - id: gcp_location
+    type: io.kestra.plugin.core.kv.Set
+    key: GCP_LOCATION
+    kvType: STRING
+    value: us-central1 
+
+  - id: gcp_bucket_name
+    type: io.kestra.plugin.core.kv.Set
+    key: GCP_BUCKET_NAME
+    kvType: STRING
+    value: daring-pier-kestra-sandbox
+
+  - id: gcp_dataset
+    type: io.kestra.plugin.core.kv.Set
+    key: GCP_DATASET
+    kvType: STRING
+    value: zoomcamp
