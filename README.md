@@ -15,9 +15,16 @@ Data Engineering is the design and development of systems for collecting, storin
 * Data Lakes and Workflow Orchestration
 * Workflow orchestration with Kestra
 ### Homework:
-TBD
+[Link](02-workflow-orchestration/homework.md)
 
-## Module 3: Data Warehouse
+## [Module 3](03-data-warehouse): Data Warehouse
+[Link to notes](03-data-warehouse/notes.md)
+* Introduction to BigQuery
+* Partitioning, clustering, and best practices
+* Machine learning in BigQuery
+
+### Homework
+TBD
 
 ## Module 4: Analytics Engineering
 
