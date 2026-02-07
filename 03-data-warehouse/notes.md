@@ -68,3 +68,11 @@ BigQuery separates storage (Colossus) from compute (Dremel) so it is cost effect
 The *tradeoff* is performance - querying external data is typically slower than querying native BigQuery tables since the data isn't optimized in BigQuery's columnar format, and you don't get benefits like partitioning and clustering in the same way.
 
 Common use cases include querying data lakes in Cloud Storage, accessing live data from Google Sheets for quick analysis, or setting up staging areas where raw data lands before being processed into optimized tables.
+
+When running queries, sBigQuery's "bytes processed" metric only counts data read from BigQuery's native storage.
+
+## Links on BG Infrastructure
+* https://luminousmen.com/post/bigquery-explained-what-really-happens-when-you-hit-run/
+* https://panoply.io/data-warehouse-guide/bigquery-architecture/
+* https://research.google/pubs/dremel-interactive-analysis-of-web-scale-datasets-2/
+
