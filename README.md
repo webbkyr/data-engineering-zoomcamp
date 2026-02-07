@@ -24,7 +24,7 @@ Data Engineering is the design and development of systems for collecting, storin
 * Machine learning in BigQuery
 
 ### Homework
-TBD
+[Link](03-data-warehouse/homework.md)
 
 ## Module 4: Analytics Engineering
 
