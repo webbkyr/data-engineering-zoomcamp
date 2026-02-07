@@ -258,4 +258,5 @@ terraform.rc
 ny_taxi_postgres_data/
 .env.json
 .env-encoded
+gcs.json
 airflow.cfg

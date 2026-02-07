@@ -1,7 +1,7 @@
 # Data Warehouses
 
 Lecure times: 
-  * 2/6 @ 2pm
+  * 2/6 1.5hr
 
 ## OLAP vs OLTP
 
@@ -57,3 +57,14 @@ Clustering, on the other hand, organizes data within a partition by sorting the 
 How do you want to query the data for your use case? Partitioning and clustering will improve performance and optimize costs (if using cloud storage/compute) if you choose the right keys for each.
 
 BigQuery separates storage (Colossus) from compute (Dremel) so it is cost effective.
+
+## What's the purpose of using external tables?
+
+* Cost savings: You're not paying for BigQuery storage since the data stays where it is. You only pay for queries.
+* Real-time data access: Great when your data is frequently updated elsewhere and you want to query the latest version without constantly reloading it into BigQuery.
+* ETL simplification: You can skip the "load" step in your pipeline - just point BigQuery at your data and query it directly. Useful for exploratory analysis before deciding what to actually import.
+* Federation: Query data across multiple systems. For example, you could join data in BigQuery tables with data sitting in Cloud Storage CSV files in a single query.
+
+The *tradeoff* is performance - querying external data is typically slower than querying native BigQuery tables since the data isn't optimized in BigQuery's columnar format, and you don't get benefits like partitioning and clustering in the same way.
+
+Common use cases include querying data lakes in Cloud Storage, accessing live data from Google Sheets for quick analysis, or setting up staging areas where raw data lands before being processed into optimized tables.
