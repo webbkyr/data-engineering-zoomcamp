@@ -4,14 +4,29 @@ Lecure times:
   * 2/6 1.5hr
 
 ## OLAP vs OLTP
+An [analogy](https://www.reddit.com/r/dataengineering/comments/1ilpzw1/comment/mbz4uax/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) from Reddit:
+
+>Keeping an eye on the score displayed on the big screen at a cricket stadium (OLAP) is much better than running onto the field to ask the umpire (OLTP) about the score after every ball. 
+>
+>The umpire’s primary role is to make crucial decisions during the game (process transactions), and while they can provide the score, interrupting them is ofcourse not ideal LOL. The scoreboard (OLAP), which is regularly updated after each ball or over, is a more efficient and non-disruptive way to stay informed.
+
+
+Another [analogy](https://www.reddit.com/r/dataengineering/comments/1ilpzw1/comment/mbwsdqr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button):
+
+>A weird analogy might be: looking at the arrivals/departures board at the airport (OLAP) instead of calling the Air Traffic Control tower (OLTP) to get flight statuses.
+>
+>ATC just needs to be left alone to do their job of conducting traffic (processing transactions), calling ATC (OLTP) WILL get you the answer you need, but it will make things slower for both of you than just looking at the board (OLAP) and it’s unnecessary compared to just waiting a few minutes (or whatever the refresh frequency is for your case) for the next refresh.
+
 
 ### Online transaction processing
+* Row optimized
 * Backend services grouping sql together and rollback in case one of them fails
 * Short, fast updates to the data
 * DB design is normalized
 * Users are customer facing
 
 ### Online analytical processing
+* Column optimized
 * Writing A LOT of data and driving insights for them (i.e. analytics and data science)
 * Data is perioditcally refreshed or appended with scheduled, long running batch jobs
 * DB design is denormalized for analysis
@@ -49,6 +64,7 @@ Clustering, on the other hand, organizes data within a partition by sorting the 
 * Partition => cost known up front; filter on aggregation on a single column
 
 * Clustering => better if you need more granularity; if your queries use a lot of filtereing or aggregations against multiple columns; cardinality can be large
+* Clustering is best used for high-cardinality columns, filter-heavy queries, or along with partitioning, as it allows BigQuery to skip scanning irrelevant data. 
 
 ### Takeaway
 * Use a time unit column for partitioning
