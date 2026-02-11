@@ -27,6 +27,14 @@ Data Engineering is the design and development of systems for collecting, storin
 [Link](03-data-warehouse/homework.md)
 
 ## Module 4: Analytics Engineering
+[Link to notes](04-analytics-engineering/notes.md)
+
+* Analytics Engineering and Data Modeling
+* dbt (data build tool) with DuckDB & BigQuery
+* Testing, documentation, and deployment
+
+### Homework
+TBD
 
 ## Module 5: Batch Processing
 
