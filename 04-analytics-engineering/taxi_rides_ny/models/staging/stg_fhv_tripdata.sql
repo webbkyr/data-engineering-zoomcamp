@@ -20,7 +20,8 @@ renamed AS (
     where dispatching_base_num is not null
 )
 
-SELECT count(*) FROM renamed
+SELECT * FROM renamed
+-- SELECT count(*) from renamed
 
 -- {% if target.name == 'dev' %}
 -- where pickup_datetime >= '2019-01-01' and pickup_datetime < '2019-02-01'
