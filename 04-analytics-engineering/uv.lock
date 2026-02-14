@@ -7,11 +7,15 @@ name = "04-analytics-engineering"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "click" },
     { name = "dbt-duckdb" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "dbt-duckdb", specifier = ">=1.10.0" }]
+requires-dist = [
+    { name = "click", specifier = ">=8.3.1" },
+    { name = "dbt-duckdb", specifier = ">=1.10.0" },
+]
 
 [[package]]
 name = "agate"
