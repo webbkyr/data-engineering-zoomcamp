@@ -40,4 +40,6 @@ WHERE service_type = 'Green' and revenue_month = '2019-10-01'
   * Rename fields to match your project's naming conventions (i.e., `PULocationID` => `pickup_location_id`)
 
 What is the count of records in stg_fhv_tripdata?
+* 43,244,693
 
+Ran `dbt -t prod build --select +stg_fhv_tripdata+` and executed query in VSCode.
