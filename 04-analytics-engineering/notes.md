@@ -19,8 +19,3 @@ Degenerate Dimensions: Transaction IDs or invoice numbers directly in the table.
 Key Contents:
 Descriptive Attributes: Customer Name, Product Category, Store City, Product Color.
 Primary Key: Unique identifier to link to the fact table. 
-
-
-dimension 
-- attributes of an entity
-- customers, vendors, locations

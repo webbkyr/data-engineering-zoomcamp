@@ -15,3 +15,5 @@ This is exactly how most Airflow teams work.
 
 
 Local venv + Docker runtime is the sweet spot.
+
+Docker runs Airflow — local venv is just for editor.
