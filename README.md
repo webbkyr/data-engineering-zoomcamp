@@ -26,7 +26,7 @@ Data Engineering is the design and development of systems for collecting, storin
 ### Homework
 [Link](03-data-warehouse/homework.md)
 
-## Module 4: Analytics Engineering
+## [Module 4](04-analytics-engineering): Analytics Engineering
 [Link to notes](04-analytics-engineering/notes.md)
 
 * Analytics Engineering and Data Modeling

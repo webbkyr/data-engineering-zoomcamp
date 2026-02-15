@@ -1,5 +1,10 @@
 # Analytics Engineering
 
+## dbt
+dbt (data build tool) is a *transformation* framework for analytics engineering. It's the control plan for your entire analytics lifecycle.
+
+It is a powerful tool that lets us transform data that is already inside of our data warehouse using SQL. On top of that, it supports best practices like version control, testing, documentation, and CI/CD.
+
 ## Kimball Modeling
 ### Fact Tables (Verbs - What Happened)
 * Maps processes
