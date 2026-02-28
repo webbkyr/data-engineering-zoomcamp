@@ -22,9 +22,9 @@ depends:
 
 materialization:
   type: table
-  strategy: time_interval
-  incremental_key: month_date
-  time_granularity: timestamp
+  # strategy: time_interval
+  # incremental_key: month_date
+  # time_granularity: timestamp
 
 columns:
   - name: taxi_type
@@ -72,11 +72,11 @@ columns:
 custom_checks:
   - name: positive_trip_count
     description: Validates total_trips count is positive for each month
-    query: SELECT COUNT(*) FROM reports.report_trips_monthly WHERE total_trips <= 0
+    query: SELECT COUNT(*) FROM reports.trips_monthly WHERE total_trips <= 0
     value: 0
   - name: non_negative_revenue
     description: Ensures aggregated total_amount_total is non-negative
-    query: SELECT COUNT(*) FROM reports.report_trips_monthly WHERE total_amount_total < 0
+    query: SELECT COUNT(*) FROM reports.trips_monthly WHERE total_amount_total < 0
     value: 0
 
 @bruin */
