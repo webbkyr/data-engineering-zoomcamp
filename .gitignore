@@ -260,3 +260,10 @@ ny_taxi_postgres_data/
 .env-encoded
 gcs.json
 airflow.cfg
+
+.bruin.yml
+logs/runs
+logs/*.log
+*.py[cod]
+duckdb.db
+duckdb-default

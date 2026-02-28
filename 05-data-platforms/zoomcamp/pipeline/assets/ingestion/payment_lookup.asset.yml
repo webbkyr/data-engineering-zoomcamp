@@ -1,0 +1,46 @@
+# Seed Asset: Load a local CSV file as a lookup table
+#
+# Docs: https://getbruin.com/docs/bruin/assets/seed
+#
+# Seed assets let you load CSV files directly into your data platform.
+# This is useful for small, static reference/lookup data.
+
+name: ingestion.payment_lookup
+
+# TODO: Set platform type.
+# Docs: https://getbruin.com/docs/bruin/assets/seed
+# suggested type: duckdb.seed
+type: duckdb.seed
+
+# Path to the CSV file (relative to this .asset.yml file).
+# Can also be a URL: https://example.com/data.csv
+parameters:
+  path: payment_lookup.csv
+description: |
+  Loads the payment type lookup table from local CSV file.
+  This table contains payment type information including payment_type_id and payment_description.
+  The lookup table is a static reference table that maps payment type codes to human-readable descriptions.
+
+  Design Choices:
+  - Why read from local CSV:
+    - Payment type codes are standardized and do not change frequently
+    - Local seed file provides version control and reproducibility
+
+  - Why seed file:
+    - Seed files are a convenient way to load static data into a database
+    - Seed asset automatically materializes into a table on each run
+
+columns:
+  - name: payment_type_id
+    type: INTEGER
+    description: Numeric code signifying how the passenger paid for the trip
+    primary_key: true
+    nullable: false
+    checks:
+      - name: not_null
+      - name: unique
+  - name: payment_type_name
+    type: VARCHAR
+    description: Human-readable description of the payment type
+    checks:
+      - name: not_null
