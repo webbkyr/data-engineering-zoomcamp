@@ -36,9 +36,11 @@ Data Engineering is the design and development of systems for collecting, storin
 ### Homework
 [Link](04-analytics-engineering/homework.md)
 
-## Module 5: Batch Processing
+## Module 5: Data Plaatforms
 
-## Module 6: Stream Processing
+## Module 6: Batch Processing
+
+## Module 7: Stream Processing
 
 ## Project Prep
 [Sandbox](sandbox) is setup to explore different datasets in preparation for the final project. Ultimately, the project will get its own repo.
