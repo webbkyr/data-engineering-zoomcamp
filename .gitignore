@@ -267,3 +267,4 @@ logs/*.log
 *.py[cod]
 duckdb.db
 duckdb-default
+.vscode
