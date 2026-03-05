@@ -36,7 +36,7 @@ Data Engineering is the design and development of systems for collecting, storin
 ### Homework
 [Link](04-analytics-engineering/homework.md)
 
-## Module 5: Data Plaatforms
+## Module 5: Data Platforms
 
 ## Module 6: Batch Processing
 
